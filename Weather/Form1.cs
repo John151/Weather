@@ -16,6 +16,17 @@ namespace Weather
     public partial class Form1 : Form
     {
         readonly string BaseUrl = "https://weather-csharp.herokuapp.com/";
+
+        string[] States = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+            "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii",
+            "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine",
+            "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
+            "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York",
+            "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+            "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+            "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" };
+
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +39,7 @@ namespace Weather
 
             //read the data from the TextBoxes
             string city = txtCity.Text;
-            string state = txtState.Text;
+            string state = cbxState.Text;
 
             //fetch current weather and display
 
@@ -139,6 +150,16 @@ namespace Weather
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cbxState.Items.AddRange(States);
         }
     }
 }
